@@ -1,0 +1,87 @@
+---
+title: "HW_2"
+author: "MGinorio"
+date: "2/14/2021"
+output: html_document
+---
+
+## Assignment # 2
+
+** Choose six recent popular movies. 
+** Ask at least five people that you know (friends, family, classmates, imaginary friends if necessary) to rate each of these movies that they have seen on a scale of 1 to 5. 
+** Take the results (observations) and store them in a SQL database of your choosing. Load the information from the SQL database into an R dataframe.
+
+
+```{r}
+# install packages RmySQL
+library(RMySQL)
+library(dplyr)
+library(ggplot2)
+library(psych)
+library(dotenv)
+# establish connection with MySQL
+
+
+```
+## sTEP 2. SETTINGS
+
+```{r}
+db_user       <- "root"
+db_password   <- "newrootpassword"
+db_name       <- "movies_db"
+db_table      <- "friends_info"
+db_host       <- "localhost"
+db_port       <-  3306
+
+```
+
+## Connect to the MySql database and retrieve the data:
+
+
+```{r}
+myConnection <- dbConnect(MySQL(), user = db_user, password = db_password,
+                          dbname = db_name, host = db_host, port = db_port)
+```
+
+
+
+## Are you able to use a password without having to share the password with people who are viewing your code?
+
+One of the most interesting approaches i found by the research is to create a .env file and save the password there.
+
+## While it’s acceptable to create a single SQL table, can you create a normalized set of tables that corresponds to the relationship between your movie viewing friends and the movies being rated?
+
+I created 4 different set of tables each one of them with a primary key
+# Create a query which joins the 3 database tables, 
+# replacing the auto-generated ID codes with the movie names and the reviewers' names
+
+```{r}
+query <- 'Select Friend ID, Name, Gender from Friends_info'
+
+```
+
+## Obtain Data from csv in github
+```{r}
+movies_info <-read.csv("https://raw.githubusercontent.com/mgino11/SQL_likert/main/Movie_ID.csv")
+
+glimpse(movies_info)
+```
+```{r}
+movies_info %>%
+  count(Movie_genre) %>%
+  arrange(desc(n))
+```
+## Is there any benefit in standardizing ratings? How might you approach this?
+it is definitively a better approach to make variables easier to interpret data easier.Usually, standardization refers to the process of subtracting the mean and dividing by the standard deviation. 
+
+```{r}
+movies_ratings <-read.csv("https://raw.githubusercontent.com/mgino11/SQL_likert/main/Friends_rating.csv")
+
+glimpse(movies_ratings)
+```
+```{r}
+movies_ratings_df <- as.data.frame(movies_ratings)
+movies_ratings_df
+```
+
+
