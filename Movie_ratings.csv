@@ -1,0 +1,11 @@
+Movie ID (PK),Stongly Disliked (1),Disliked (2),Neutral (3),Liked (4),Strongly Liked (5)
+Mov1,,2,4,2,1
+Mov2,1,4,1,,2
+Mov3,2,1,2,2,
+Mov4,,5,1,1,2
+Mov5,2,3,2,2,1
+Mov6,2,,2,3,1
+Mov7,2,2,,2,2
+Mov8,,3,3,1,1
+Mov9,1,1,2,,4
+Mov10,2,2,,1,3

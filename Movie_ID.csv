@@ -1,0 +1,11 @@
+MovieID (PK),Movie_name,Year_Released,Movie_genre
+Mov1,Da 5 Bloods,2020,Drama
+Mov2,Never Rarely sometimes Always,2020,Drama
+Mov3,Tenet,2020,action
+Mov4,Bacurau,2020,Thriller
+Mov5,Nomad Land,2020,Drama
+Mov6,Mank,2020,Comedy
+Mov7,Im thinking of Ending Things,2020,Horror
+Mov8,The Nest,2020,Thriller
+Mov9,Lovers Rcok,2020,Romance
+Mov10,First Cow ,2020,Drama
